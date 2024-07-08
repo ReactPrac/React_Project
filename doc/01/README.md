@@ -90,6 +90,10 @@ The engine "node" is incompatible with this module
 |-|
 |-|
 |![image](https://github.com/silverywaves/React_Project/assets/155939946/528feb5a-5e61-4e0d-a9e9-cbfb47713342)|
+- node_modules 폴더 : 라이브러리 코드 보관함
+- public 폴더 : static 파일 모아놓는 곳
+- src 폴더 : 코드 짜는 곳(source 코드 보관함)
+- package.json : 프로젝트 정보
 
 <br>
 
