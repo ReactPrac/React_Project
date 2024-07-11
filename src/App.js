@@ -78,7 +78,8 @@ function App() {
 				// 파라미터 a : array 안에 있던 데이터
 				// 파라미터 i : 반복문 돌 때마다 0부터 1씩 증가하는 정수
 				return (
-					<div className="list">
+					<div className="list" key={i}>
+						{/* 반복문으로 html 생성하면 key={html마다 다른숫자} 추가해야함 */}
 						{/* <h4>{a}</h4> */}
 						<h4>
 							<span
