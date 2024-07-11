@@ -9,8 +9,12 @@ function App() {
 		'리액트 기초',
 		'집에 가고싶다',
 	]);
-	let [like, setLike] = useState(0);
+	let [like, setLike] = useState([0, 0, 0]);
 	let [modal, setModal] = useState(false); // state 형식은 자유(모달창상태 표현만 가능하면 ok)
+
+	[1, 2, 3].map(function (a) {
+		return '1233211';
+	});
 
 	return (
 		<div className="App">
@@ -27,17 +31,9 @@ function App() {
 				가나다순 정렬
 			</button>
 			{/* <div className="list">
-				<h4>글 제목</h4>
-				<p>7월 9일 발행</p>
-			</div> */}
-			<div className="list">
 				<h4>{title[0]}</h4>
 				<p>7월 9일 발행</p>
 			</div>
-			{/* <div className="list">
-				<h4>{post}</h4>
-				<p>7월 9일 발행</p>
-			</div> */}
 			<div className="list">
 				<h4>{title[1]}</h4>
 				<p>7월 9일 발행</p>
@@ -75,7 +71,40 @@ function App() {
 						✏️
 					</span>
 				</p>
-			</div>
+			</div> */}
+
+			{title.map(function (a, i) {
+				// title.map() : title이라는 state도 array 자료라 map 사용 가능 => 실제 글갯수만큼 html 생성
+				// 파라미터 a : array 안에 있던 데이터
+				// 파라미터 i : 반복문 돌 때마다 0부터 1씩 증가하는 정수
+				return (
+					<div className="list">
+						{/* <h4>{a}</h4> */}
+						<h4>
+							<span
+								onClick={() => {
+									// setModal((e) => !e);
+									setModal(!modal);
+								}}
+							>
+								{title[i]}
+							</span>
+							<span
+								className="btn"
+								onClick={() => {
+									let copy = [...like];
+									copy[i] = copy[i] + 1;
+									setLike(copy);
+								}}
+							>
+								❤️
+							</span>
+							{like[i]}
+						</h4>
+						<p>7월 9일 발행</p>
+					</div>
+				);
+			})}
 
 			{modal == true ? <Modal></Modal> : null}
 			{/* 제목 클릭시 모달창 띄우려면? => 클릭시 state 조절 */}
