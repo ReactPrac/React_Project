@@ -30,6 +30,8 @@ state 정의 및 사용 방법
   state는 부모 → 자식 전송만 가능
 ```
 
+<br>
+
 <details>
   <summary>destructuring 문법</summary>
 
