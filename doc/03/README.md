@@ -25,6 +25,11 @@ state 정의 및 사용 방법
 
 <br>
 
+> 다양한 컴포넌트에서 쓰이는 state는 최상위 부모에게 만들어야함
+```
+  state는 부모 → 자식 전송만 가능
+```
+
 <details>
   <summary>destructuring 문법</summary>
 
