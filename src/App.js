@@ -13,6 +13,7 @@ function App() {
 	let [modal, setModal] = useState(false); // state 형식은 자유(모달창상태 표현만 가능하면 ok)
 
 	let [titleList, setTitleList] = useState(0);
+	let [inputValue, setInputValue] = useState('');
 
 	return (
 		<div className="App">
@@ -36,19 +37,18 @@ function App() {
 					<div className="list" key={i}>
 						{/* 반복문으로 html 생성하면 key={html마다 다른숫자} 추가해야함 */}
 						{/* <h4>{a}</h4> */}
-						<h4>
-							<span
-								onClick={() => {
-									// setModal((e) => !e);
-									setModal(true);
-									setTitleList(i);
-								}}
-							>
-								{title[i]}
-							</span>
+						<h4
+							onClick={() => {
+								// setModal((e) => !e);
+								setModal(true);
+								setTitleList(i);
+							}}
+						>
+							{title[i]}
 							<span
 								className="btn"
-								onClick={() => {
+								onClick={(e) => {
+									e.stopPropagation(); // 상위html로 퍼지는 이벤트버블링을 막고싶으면 사용
 									let copy = [...like];
 									copy[i] = copy[i] + 1;
 									setLike(copy);
@@ -57,11 +57,44 @@ function App() {
 								❤️
 							</span>
 							{like[i]}
+							<span
+								className="btn"
+								onClick={(e) => {
+									e.stopPropagation();
+									let copy = [...title];
+									copy.splice(i, 1); // array자료에서 x번째 데이터를 삭제하고 싶으면 array자료.splice(x, 1)
+									setTitle(copy);
+								}}
+							>
+								✖️
+							</span>
 						</h4>
 						<p>7월 9일 발행</p>
 					</div>
 				);
 			})}
+
+			<input
+				value={inputValue}
+				onChange={(e) => {
+					// e : 지금 발생하는 이벤트에 관련한 여러 기능이 담겨있음
+					setInputValue(e.target.value);
+					console.log(inputValue);
+				}}
+			></input>
+			<button
+				onClick={() => {
+					let copy = [...title];
+					// setTitle(copy.concat(inputValue));
+					// setTitle([...copy, inputValue]);
+					copy.unshift(inputValue); // unshift(inputValue) : array자료 맨 앞에 자료추가하는 문법
+					setTitle(copy);
+					console.log(copy);
+					setInputValue('');
+				}}
+			>
+				추가
+			</button>
 
 			{modal == true ? (
 				<Modal
