@@ -107,20 +107,31 @@ function App() {
 				);
 			})}
 
-			{modal == true ? <Modal></Modal> : null}
+			{modal == true ? (
+				<Modal color={'pink'} title={title} setTitle={setTitle}></Modal>
+			) : null}
 			{/* 제목 클릭시 모달창 띄우려면? => 클릭시 state 조절 */}
 		</div>
 	);
 }
 
-function Modal() {
+function Modal(props) {
 	// 다른 function 바깥에 생성 & 영어대문자
 	return (
 		// return ( ) 내부는 하나의 태그로 시작해서 하나의 태그로 끝내기
-		<div className="modal">
-			<h4>제목</h4>
+		<div className="modal" style={{ background: props.color }}>
+			<h4>{props.title[0]}</h4>
 			<p>날짜</p>
 			<p>상세내용</p>
+			<button
+				onClick={() => {
+					let copy = [...props.title];
+					copy[0] = '글수정';
+					props.setTitle(copy);
+				}}
+			>
+				글수정
+			</button>
 		</div>
 	);
 }
