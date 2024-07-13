@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 	// let post = '리액트 기본 문법';
@@ -14,6 +14,15 @@ function App() {
 
 	let [titleList, setTitleList] = useState(0);
 	let [inputValue, setInputValue] = useState('');
+
+	let [currentDate, setCurrentDate] = useState('');
+
+	useEffect(() => {
+		// 컴포넌트가 마운트될 때 현재 날짜를 설정
+		let date = new Date();
+		let formattedDate = `${date.getMonth() + 1}월 ${date.getDate()}일`;
+		setCurrentDate(formattedDate);
+	});
 
 	return (
 		<div className="App">
@@ -69,7 +78,7 @@ function App() {
 								✖️
 							</span>
 						</h4>
-						<p>7월 9일 발행</p>
+						<p>{currentDate} 발행</p>
 					</div>
 				);
 			})}
@@ -84,6 +93,10 @@ function App() {
 			></input>
 			<button
 				onClick={() => {
+					if (inputValue.trim() == '') {
+						alert('입력값이 없습니다');
+						return;
+					}
 					let copy = [...title];
 					// setTitle(copy.concat(inputValue));
 					// setTitle([...copy, inputValue]);
@@ -91,6 +104,9 @@ function App() {
 					setTitle(copy);
 					console.log(copy);
 					setInputValue('');
+					let copyLike = [...like];
+					copyLike.unshift(0);
+					setLike(copyLike);
 				}}
 			>
 				추가
