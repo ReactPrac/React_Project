@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
 	// let post = '리액트 기본 문법';
@@ -82,7 +82,6 @@ function App() {
 					</div>
 				);
 			})}
-
 			<input
 				value={inputValue}
 				onChange={(e) => {
@@ -98,8 +97,6 @@ function App() {
 						return;
 					}
 					let copy = [...title];
-					// setTitle(copy.concat(inputValue));
-					// setTitle([...copy, inputValue]);
 					copy.unshift(inputValue); // unshift(inputValue) : array자료 맨 앞에 자료추가하는 문법
 					setTitle(copy);
 					console.log(copy);
@@ -111,7 +108,6 @@ function App() {
 			>
 				추가
 			</button>
-
 			{modal == true ? (
 				<Modal
 					color={'pink'}
@@ -121,6 +117,7 @@ function App() {
 				></Modal>
 			) : null}
 			{/* 제목 클릭시 모달창 띄우려면? => 클릭시 state 조절 */}
+			<Modal2></Modal2>
 		</div>
 	);
 }
@@ -143,6 +140,31 @@ function Modal(props) {
 			</button>
 		</div>
 	);
+}
+
+class Modal2 extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			name: 'kim',
+			age: 20,
+		};
+	}
+
+	render() {
+		return (
+			<div>
+				안녕 {this.state.age}
+				<button
+					onClick={() => {
+						this.setState({ age: 21 });
+					}}
+				>
+					버튼
+				</button>
+			</div>
+		);
+	}
 }
 
 export default App;
