@@ -4,7 +4,7 @@ class 컴포넌트
 - 예전 리액트에서 사용하던 방식
   - 지금은 function 권장 
 > class 문법으로 컴포넌트 만드는 법 
-```
+```javascript
   class Modal2 extends React.Component {
   	// constructor, super, render 채워넣어야함
   	constructor() {
@@ -21,7 +21,7 @@ class 컴포넌트
 
 class 컴포넌트 - state 생성
 ---
-```
+```javascript
   class Modal2 extends React.Component {
   	// constructor, super, render 채워넣어야함
   	constructor() {
@@ -42,7 +42,7 @@ class 컴포넌트 - state 생성
 
 class 컴포넌트 - state 변경
 ---
-```
+```javascript
   class Modal2 extends React.Component {
   	constructor() {
   		super();
@@ -68,7 +68,7 @@ class 컴포넌트 - state 변경
 
 class 컴포넌트 - props
 ---
-```
+```javascript
   class Modal2 extends React.Component {
   	constructor(props) {
   		super(props);
