@@ -18,7 +18,7 @@ props
 props로 부모 → 자식 state 전송
 ---
 > props 2Step
-```
+```javascript
   1. 자식컴포넌트 사용하는 곳에 가서 <자식컴포넌트 작명={state이름} /> 
   
   2. 자식컴포넌트 만드는 function으로 가서 props라는 파라미터 등록 후 props.작명 사용
@@ -27,7 +27,7 @@ props로 부모 → 자식 state 전송
 <br>
 
 > 참고
-```
+```javascript
   1. props는 <Modal 이런거={이런거}  저런거={저런거}> 이렇게 10개 100개 1000개 무한히 전송 가능
   
   2. 꼭 state만 전송할 수 있는건 아님
