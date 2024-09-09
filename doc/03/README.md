@@ -2,7 +2,7 @@
 state 정의 및 사용 방법
 ---
 > 변수 말고 state를 만들어서 데이터 저장 가능
-```
+```javascript
   1. import { useState } from 'react';
   2. useState('보관할 자료')
   3. let [작명, 작명]
@@ -16,7 +16,7 @@ state 정의 및 사용 방법
 <br>
 
 > state는 변동사항이 생기면 state쓰는 html도 자동으로 재렌더링
-```
+```javascript
   1. UI 기능 개발 편리
   2. 웹페이지가 부드럽게 동작
   3. 바뀌지 않는 데이터들은 state로 굳이 저장할 필요 X
@@ -26,7 +26,7 @@ state 정의 및 사용 방법
 <br>
 
 > 다양한 컴포넌트에서 쓰이는 state는 최상위 부모에게 만들어야함
-```
+```javascript
   state는 부모 → 자식 전송만 가능
 ```
 
@@ -37,12 +37,12 @@ state 정의 및 사용 방법
 
 ex. array 자료를 각각 변수에 저장하려면
 ---
-```
+```javascript
   let array = ['kim', 20];
 ```
 
 > 방법1
-```
+```javascript
   let name = array[0];  // 'kim'
   let age = array[1];   // 20
 ```
@@ -50,7 +50,7 @@ ex. array 자료를 각각 변수에 저장하려면
 <br>
 
 > 방법2
-```
+```javascript
   let [name, age] = ['Kim', 20]  // name = 'Kim',  age = 20
 ```
 - 왼쪽 오른쪽 형식을 똑같이 맞춰주면 자동으로 알아서 변수가 생성
@@ -64,14 +64,14 @@ onclick
 ---
 - 어떤 html을 클릭시 원하는 코드 실행하는 법
 > 일반 html 파일
-```
+```html
   <div onclick="실행할 자바스크립트~~~">
 ```
 
 <br>
 
 > JSX
-```
+```javascript
   <div onClick={실행할함수}>
 
   /*
@@ -84,7 +84,7 @@ onclick
 <br>
 
 > ex1
-```
+```javascript
   function 함수() {
     console.log(1);
   }
@@ -108,7 +108,7 @@ onclick
 <br>
 
 > ex2
-```
+```javascript
   <div className="list">
     <h4>
       글 제목<span onClick={function 함수(){console.log(1)}}>❤️</span>
@@ -121,7 +121,7 @@ onclick
 <br>
 
 > ex3
-```
+```javascript
   <div className="list">
     <h4>
       글 제목<span onClick={()=>{console.log(1)}}>❤️</span>
@@ -137,7 +137,7 @@ state 변경 방법1
 ---
 - 등호로 변경 금지
 > ex
-```
+```javascript
   <div className="list">
     <h4>
       글 제목<span onClick={()=>{like = like + 1}>❤️</span> // 잘못된 사용방법!
@@ -151,7 +151,7 @@ state 변경 방법1
 
 - state 변경용 함수 사용
 > ex
-```
+```javascript
   let [like, likeEdit] = useState(0);  // likeEdit : state 변경용 함수
 
   return (
@@ -176,7 +176,7 @@ state 변경 방법2 - array, object
 ---
 - 하드코딩(권장X)
 > ex
-```
+```javascript
   let [title, titleEdit] = useState([
     '리액트 데이터바인딩',
     '리액트 연습',
@@ -203,7 +203,7 @@ state 변경 방법2 - array, object
 
 - 원본 데이터를 직접 조작하는 것 보다는 기존값은 보존해주는 식으로 코드짜는게 좋은관습
 > 독립적 카피본(shallow copy, deep copy)을 만들어 변수에 저장한 후 수정
-```
+```javascript
   let [title, titleEdit] = useState([
     '리액트 데이터바인딩',
     '리액트 연습',
@@ -236,7 +236,7 @@ state 변경 방법2 - array, object
   - [1,2,3] → 1,2,3
 - array나 object 자료형을 복사할 때 사용
 > ex
-```
+```javascript
   let data1 = [1, 2, 3];   
   let data2 = [...data1];  //  data1에 있던 자료들을 괄호 뺀 후 다시 array 생성(새로운 array로 인식 : 화살표 변경)
   console.log(data1 === data2);  // false
@@ -250,7 +250,7 @@ state 변경함수 동작 원리
 ---
 - state 변경함수를 쓸 때 기존state === 신규state 이렇게 먼저 검사함
   - 같으면 state 변경 X
-```
+```javascript
   let [title, titleEdit] = useState([
     '리액트 데이터바인딩',
     '리액트 연습',
@@ -273,7 +273,7 @@ state 변경함수 동작 원리
 ```
 
 > Q. copy라는 변수랑 기존 state랑 안에 있는 자료가 다른데 왜 같을까?
-```
+```javascript
   기존 state는 '집에 가고싶다', copy에는 '학원가야지'이 들어있지만
   
   기존state === copy 결과는 true
@@ -290,7 +290,7 @@ array/object 동작원리
 |![image](https://github.com/silverywaves/React_Project/assets/155939946/f889271b-bffc-494c-8e74-37975056269d)|
 1. 자바스크립트는 array/object 자료를 하나 만들면 자료는 램에, 변수엔 위치 저장
 > ex
-```
+```javascript
   let arr = [1,2,3]
   
   [1,2,3] 자료는 램이라는 가상공간에 저장
@@ -302,13 +302,13 @@ array/object 동작원리
 
 2. array/object 를 복사하면 위차가 복사
 > ex
-```
+```javascript
   let data1 = [1,2,3];
   let data2 = data1;   // 복사문법(data1에 있던 자료를 data2에 복사)
   console.log(data2);  // [1,2,3] 
 ```
 > but
-```
+```javascript
   data1과 data2는 각각 [1,2,3]을 별개로 저장하는게 아니라 똑같은 값을 공유
     ⇒ data1을 변경하면 data2도 자동으로 변경
   
@@ -321,7 +321,7 @@ array/object 동작원리
 
 3. 같은 화살표를 가지고 있는 변수끼리는 등호로 비교해도 똑같음
 > ex
-```
+```javascript
   let data1 = [1,2,3];
   let data2 = data1;  // 복사
   data2[0] = 1000;    // data2 내부 변경
@@ -334,7 +334,7 @@ array/object 동작원리
 
 ### 참고 : eslint
 > 터미널 / 브라우저 콘솔창에 warning이 뜨는 이유
-```
+```javascript
   빨간색 error는 해결 필수
   노란색 warning 메세지 등장시 무시 가능
     : eslint라는 기능이 잘못된 코딩관습 교정해주는 것
@@ -343,7 +343,7 @@ array/object 동작원리
 <br>
 
 > 기능 잠시 off 하기
-```
+```javascript
   /*eslint-disable*/    js 파일 최상단에 추가
 ```
 
