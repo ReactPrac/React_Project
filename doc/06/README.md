@@ -10,7 +10,7 @@ map
 자바스크립트 map 함수
 ---
 > 기능1 : array에 들어있는 자료갯수만큼 그 안에 있는 코드를 반복실행
-```
+```javascript
   var arr = [2,3,4];  // 모든 array 자료 우측엔 map() 함수를 붙일 수 있d음
   arr.map(function(){
     console.log(1)    // 결과 : console.log(1) 3번 실행
@@ -20,7 +20,7 @@ map
 <br>
 
 > 기능2 : 콜백함수에 파라미터 작명시 그 파라미터는 array 안에 있던 모든 자료를 하나씩 출력
-```
+```javascript
   var arr = [2,3,4];
   arr.map(function(a){    // 콜백함수 : 소괄호안에 있는 함수
     console.log(a)        // 결과 : 2, 3, 4
@@ -30,7 +30,7 @@ map
 <br>
 
 > 기능3 : return 오른쪽 값을 array로 담아줌
-```
+```javascript
   var arr = [2,3,4];
   var newArray = arr.map(function(a){
     return a * 10
@@ -43,7 +43,7 @@ map
 JSX 안에서 html을 반복생성하기 위한 map
 ---
 > 예제코드
-```
+```javascript
   function App (){
     return (
       <div>
@@ -71,7 +71,7 @@ JSX 안에서 html을 반복생성하기 위한 map
 <br>
 
 > 작동 원리
-```
+```javascript
   [1, 2, 3] 에다가 map을 붙였으니 그 안의 자료 갯수만큼 map 내부 코드를 실행
   map 내부에 return <div>안녕</div> 작성되어있는 상태
     ⇒ <div>안녕</div> 이걸 array에 3번 담아줌
@@ -81,7 +81,7 @@ JSX 안에서 html을 반복생성하기 위한 map
 <br>
 
 > 반복된 html에 각각 다른 내용 출력
-```
+```javascript
   {title.map(function (a, i) {
     // title.map() : title이라는 state도 array 자료라 map 사용 가능 => 실제 글갯수만큼 html 생성
     // 파라미터 a : array 안에 있던 데이터
