@@ -2,7 +2,7 @@
 input
 ---
 > 리액트에서는 닫는 태그 필수
-```
+```javascript
   <input></input>
   <input />
 ```
@@ -15,7 +15,7 @@ input
 <br>
 
 > html과 동일
-```
+```javascript
   <input type="text"/>
   <input type="range"/>
   <input type="date"/>
@@ -33,7 +33,7 @@ input
 \<input> 입력시 코드 실행
 ---
 > 이벤트핸들러 부착(onChange or onInput)
-```
+```javascript
   <input onChange={()=>{ 실행할코드 }}/>
   <input onInput={()=>{ 실행할코드 }}/> 
 ```
@@ -43,14 +43,14 @@ input
 \<input>에 입력한 값 가져오기
 ---
 > 파라미터 추가 후 target.value
-```
+```javascript
   <input onChange={(e)=>{ console.log(e.target.value) }}/>
 ```
 
 <br>
 
 > 작동원리
-```
+```javascript
 1. 이벤트핸들러에 들어가는 함수에 파라미터(e)를 추가
 
 2. e는 이벤트 객체 호출
@@ -58,7 +58,7 @@ input
 ```
 
 > 명령어
-```
+```javascript
   e.target : 현재 이벤트가 발생한 곳 알려줌
   
   e.preventDefault() : 이벤트 기본 동작을 막아줌
@@ -72,7 +72,7 @@ input
 사용자가 input에 입력한 데이터 저장
 ---
 > state 아니면 변수에 저장해서 사용
-```
+```javascript
   function App (){
   
     let [입력값, 입력값변경] = useState('');  // state에 문자를 저장하고 싶은데 기본값을 뭘 넣을지 모르겠으면 따옴표 2개(=빈문자)
@@ -88,7 +88,7 @@ input
 <br>
 
 > 코드 실행시 a 입력하면 콘솔창에 아무것도 안뜨는데, aa 입력시 a만 콘솔창에 출력되는 이유
-```
+```javascript
   1. state 변경함수 특징(state 변경함수는 약간 늦게 처리됨)
     = async하게 (비동기적으로) 처리
 
