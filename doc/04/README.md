@@ -2,7 +2,7 @@
 html vs component
 ---
 > html
-```
+```javascript
   <div className="modal">
     <h4>제목</h4>
     <p>날짜</p>
@@ -13,7 +13,7 @@ html vs component
 <br>
 
 > Component
-```
+```javascript
   <div>
     <Modal></Modal>
   </div>
@@ -28,7 +28,7 @@ Component
 <br>
 
 > 사용방법
-```
+```javascript
   1. function을 이용해서 함수를 하나 만들어주고 작명
   
   2. 그 함수 내 return () 안에 축약을 원하는 HTML 작성
@@ -39,7 +39,7 @@ Component
 <br>
 
 > 주의
-```
+```javascript
   1. component 작명할 땐 영어대문자로 작명
   
   2. return () 안엔 html 태그들이 평행하게 여러개 들어갈 수 없음
@@ -54,7 +54,7 @@ Component
 <br>
 
 > arrow function 가능
-```
+```javascript
   function Modal(){
     return ( <div></div> )
   }
@@ -67,7 +67,7 @@ Component
 <br>
 
 > 어떤 HTML들을 Component 만드는게 좋을까?
-```
+```javascript
   - 사이트에 반복해서 출현하는 HTML 덩어리들을 Component로 생성
   
   - 내용이 매우 자주 변경될 것 같은 HTML 부분을 잘라서 Component로 생성
@@ -85,7 +85,7 @@ Component
 <br>
 
 > 단점
-```
+```javascript
   HTML 깔끔하게 쓰려고 Component를 과도하게 만들면 관리가 힘들어짐
   
   <ex>
